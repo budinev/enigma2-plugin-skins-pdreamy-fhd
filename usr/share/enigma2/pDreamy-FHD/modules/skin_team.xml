@@ -1,0 +1,586 @@
+<skin>
+	<!--
+	################### mmark_openDreamy_Teams v.1.1.0 ######################
+	#                                                                       #
+	#                      Panels of Various Teams  			#
+        #   ATEMIO4Y - EGAMI - ITALYSAT - openATV - openPLI openMIPS - openVIX  #
+	#                                                                       #
+	#       openDROID - openNFR - openHDF - openVIX - openESI - openLD      #       
+	#                                                                       #
+	#########################################################################
+	-->
+	<!-- openDreamy v1.1 skin, based on Dreamy by mmark (E2skin.blogspot.com) -->
+	<!-- This skin is a Freeware. Everyone can modify and use it in other images -->
+	<!-- !!!!!!! BUT DO NOT REMOVE OR CHANGE THIS DISCLAIMER !!!!!!! -->
+	<!-- Do whatever you want with this skin,but don't tell it's yours, or your idea --> 
+	<!--    and leave the credentials in the "About-box" as they are -->
+		
+	<!-- ####################################### -->
+	<!-- ########### ATV TEAM PANELS ########### -->
+	<!-- ####################################### -->
+
+	<!-- O-ATV Quick Menu -->
+	<screen name="QuickMenu" position="fill" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="p800_Date"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<widget name="list"    position="60,180"  size="508,750" itemHeight="80" font="Regular; 33" scrollbarMode="showNever" transparent="1" backgroundColor="header" 
+		                       foregroundColor="white" backgroundColorSelected="bluette" foregroundColorSelected="white" />
+		<eLabel position="572,180" size="1,720" backgroundColor="grey" />
+		<widget name="sublist" position="577,180" size="665,750" itemHeight="80" font="Regular; 33" scrollbarMode="showNever" transparent="1" backgroundColor="header" 
+		                       foregroundColor="white" backgroundColorSelected="bluette" foregroundColorSelected="white" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT01" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+
+	<!-- O-ATV QuickMenu Devices -->
+	<screen name="QuickMenuDevices" position="fill" title="Devices" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Logo"/>
+		<panel name="M"/>
+		<eLabel text="Available Devices" position="70,180" size="820,50" font="Regular;30" halign="left" foregroundColor="white" backgroundColor="bluette" transparent="0" />
+		<widget source="devicelist" render="Listbox" position="70,240" size="820,340" scrollbarMode="showOnDemand" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+				 MultiContentEntryText(pos = (80, 0), size = (720, 40), font=0, color=0x59a5f5, text = 0),
+				 MultiContentEntryText(pos = (105, 40), size = (600, 60), font=1, flags = RT_VALIGN_TOP, text = 1),
+				 MultiContentEntryPixmapAlphaBlend(pos = (0, 0), size = (80, 80), png = 2),
+				],
+				"fonts": [gFont("Regular",32),gFont("Regular",26)],
+				"itemHeight": 110
+				}
+			</convert>
+		</widget>
+		<widget name="lab1" zPosition="2" position="70,180" size="820,40" font="Regular;32" backgroundColor="header" foregroundColor="white" halign="center" transparent="0" />
+		<ePixmap position="960,640" size="256,256" pixmap="menu/devices.png" alphatest="blend"/>
+		<ePixmap position="60,970"  size="700,90"  pixmap="icons/ico_team.png"  alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT02" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+
+	<!-- O-ATV SoftwareUpdate -->
+		<screen name="SoftwareUpdate" title="Software Update" position="0,0" size="1920,1080" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="package_text" position="70,153" size="375,53" zPosition="1" font="Regular;36" halign="right" backgroundColor="header" transparent="1" />
+		<widget name="package_count" position="456,153" size="75,53" zPosition="1" font="Regular;36" halign="right" backgroundColor="header" transparent="1" />
+		<widget name="feedmessage" position="1215,578" size="623,330" font="Regular;30" halign="center" backgroundColor="header" valign="center" transparent="1"/>
+		<widget name="activity" position="105,255" size="465,8" />
+		<widget source="list" render="Listbox" position="90,270" size="800,620" scrollbarMode="showOnDemand" backgroundColor="header" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (8, 2), size = (885, 42), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+						MultiContentEntryText(pos = (8, 39), size = (885, 32), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+						MultiContentEntryPixmapAlphaBlend(pos = (908, 3), size = (72, 72), png = 4, flags = BT_SCALE), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (0, 75), size = (1050, 3), png = 5), # index 5 is the div pixmap
+					],
+				"fonts": [gFont("Regular",33),gFont("Regular",24)],
+				"itemHeight": 78
+				}
+			</convert>
+		</widget>
+		<widget name="traffic_off"    pixmap="icons/aoff.png"    position="960,600" size="256,256" zPosition="1" alphatest="blend" />
+		<widget name="traffic_red"    pixmap="icons/ared.png"    position="960,600" size="256,256" zPosition="1" alphatest="blend" />
+		<widget name="traffic_yellow" pixmap="icons/ayellow.png" position="960,600" size="256,256" zPosition="1" alphatest="blend" />
+		<widget name="traffic_green"  pixmap="icons/agreen.png"  position="940,600" size="256,256" zPosition="1" alphatest="blend" />
+		<widget name="feedstatus_red"    position="960,870" size="200,40" zPosition="1" font="Regular;30" halign="left" transparent="1" />
+		<widget name="feedstatus_yellow" position="960,870" size="200,40" zPosition="1" font="Regular;30" halign="left" transparent="1" />
+		<widget name="feedstatus_green"  position="960,870" size="200,40" zPosition="1" font="Regular;30" halign="left" transparent="1" />
+		<panel name="p800_Template" />
+		<panel name="p800_Logo"/>
+		<panel name="p800_DateMid"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+	</screen>
+	
+	
+	<!-- O-ATV SoftCam Panel Install --> 
+	<screen name="ShowSoftcamPackages" position="fill" title="Install Softcams" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="setup_common"/>
+		<panel name="O"/>
+		<widget source="list" render="Listbox" position="70,180" size="1160,720" scrollbarMode="showOnDemand" transparent="1" zPosition="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryPixmapAlphaBlend(pos = (10, 5), size = (48, 48), png = 4), # index 4 is the status pixmap
+						MultiContentEntryText(pos = (90, 5), size = (890, 40), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+						MultiContentEntryText(pos = (90, 40), size = (890, 40), font=1, flags = RT_HALIGN_LEFT, text = 2, color=0x91c7ff, color_sel=0x91c7ff), # index 2 is the description
+						MultiContentEntryPixmapAlphaBlend(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
+					],
+				"fonts": [gFont("Regular",32),gFont("Regular",24)],
+				"itemHeight": 80
+				}
+			</convert>
+		</widget>
+		<ePixmap position="1440,170" size="256,256" pixmap="menu/camcenter.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="AT05" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+
+	<!-- O-ATV User Interface Setup -->
+	<screen name="setup_userinterface" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT06" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+			
+	<!-- O-ATV Video Setup -->
+	<screen name="VideoSetup" position="fill" title="Video Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT08" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV EPG Setup -->
+	<screen name="setup_epgsettings" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<widget name="HelpWindow" position="80,700" size="1,1" transparent="1" zPosition="1" alphatest="on"/>
+		<!-- eLabel name="DEBUG" text="AT09" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+	
+	<!-- O-ATV EPGMulti Setup -->
+	<screen name="setup_epgmulti" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT10" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV EPGEnhanced Setup -->
+	<screen name="setup_epgenhanced" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT11" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV EPG Infobar Setup -->
+	<screen name="setup_epginfobar" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT12" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV EPG Infobar Graphical Setup -->
+	<screen name="setup_epginfobargraphical" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT13" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV EPG Graphical Setup -->
+	<screen name="setup_epggraphical" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT14" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV SubTitle Setup -->
+	<screen name="setup_subtitlesetup" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT15" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV DVDPlayer Setup -->
+	<screen name="setup_dvdplayer" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT16" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Logs Setup -->
+	<screen name="setup_logs" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT17" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Time Setup -->
+	<screen name="setup_time" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT18" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV KeyBoard Setup -->
+	<screen name="setup_keyboard" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT19" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Recording Setup -->
+	<screen name="setup_recording" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT20" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV TimeShift Setup -->
+	<screen name="setup_timeshift" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT21" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Special Features Setup -->
+	<screen name="setup_specialfeatures" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT22" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Display Setup -->
+	<screen name="setup_display" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT23" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Channel Selection Setup -->
+	<screen name="setup_channelselection" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT24" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Usage Setup -->
+	<screen name="setup_usage" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT25" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Remote Setup -->
+	<screen name="setup_remotesetup" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT26" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV AutoLanguage Setup -->
+	<screen name="setup_autolanguagesetup" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT27" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV HardDisk Setup -->
+	<screen name="setup_harddisk" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT28" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+	
+	<!-- O-ATV LED GigaBlue Setup -->
+	<screen name="LED_GigaSetup" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="p800_Ext_BiN"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<panel name="M"/>
+		<widget name="config"      position="70,180" size="1160,720" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="description" position="1260,560" size="610,300" font="Regular;32" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<ePixmap position="1270,38" size="200,90" pixmap="icons/logosmall.png" alphatest="blend" zPosition="2" />
+		<ePixmap position="1440,180" size="256,256" pixmap="menu/info_screen.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="AT29" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV Device Panels -->
+	<screen name="DevicePanelConf" position="fill" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid"/>
+		<panel name="M"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<widget name="config"  position="70,180" size="1160,600" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<widget name="Linconn" position="70,180" size="820,100" font="Regular;32" backgroundColor="header" transparent="1" />
+		<!-- eLabel name="DEBUG" text="AT30" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+		
+	<!-- O-ATV ChannelSelection Small -->
+	<screen name="mySmallChannelSelection" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_DateMid"/>
+		<eLabel text="Select service to add..." position="70,180" foregroundColor="header" size="820,50" noWrap="0" font="Regular; 35" backgroundColor="header" transparent="1" />
+		<widget name="list" position="70,260" size="820,510" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" foregroundColor="white" backgroundColorSelected="header" foregroundColorSelected="ltbluette" transparent="1" />
+		<!-- eLabel name="DEBUG" text="AT34" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+	
+	<!-- O-ATV Select Sat -->
+	<screen name="SelectSatsEntryScreen" position="fill" title="Select Sats Entry" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_DateMid"/>
+		<panel name="M"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<eLabel text="Select Sats Entry" position="70,180" foregroundColor="header" size="800,50" font="Regular; 35" backgroundColor="header" transparent="1" />
+		<widget name="list" position="70,180" size="700,500" itemHeight="30" font="Regular; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="header" foregroundColor="white" backgroundColorSelected="header" foregroundColorSelected="ltbluette" transparent="1" />
+		<widget source="hint" render="Label" position="70,700" size="820,140" font="Regular; 20" foregroundColor="white" halign="center" backgroundColor="header" valign="center" transparent="1"/>
+		<ePixmap position="955,640" size="300,300" pixmap="menu/ico_team.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="AT35" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+	
+	<!-- O-ATV Software Manager -->
+	<screen name="SoftwareManagerInfo" position="fill" title="SoftwareManager information" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_DateMid"/>
+		<panel name="M"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<widget source="Title" render="Label" position="70,180" foregroundColor="header" size="820,50" font="Regular; 35" backgroundColor="header" transparent="1" />
+		<widget source="list" render="Listbox" position="70,260" size="820,480" scrollbarMode="showOnDemand" backgroundColor="header" foregroundColor="white" backgroundColorSelected="header" foregroundColorSelected="ltbluette" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (5, 2), size = (695, 30), font=0, flags = RT_HALIGN_LEFT | RT_HALIGN_CENTER, text = 0), # index 0 is the name
+					],
+				"fonts": [gFont("Regular", 26),gFont("Regular", 30)],
+				"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<ePixmap position="955,640" size="300,300" pixmap="menu/ico_team.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="AT36" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+
+	<!-- O-ATV Restore Image -->
+	<screen name="RestoreMenuImage" position="fill" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_DateMid"/>
+		<panel name="M"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+		<eLabel text="Restore Backups" position="70,180" foregroundColor="header" size="820,50" font="Regular; 35" backgroundColor="header" transparent="1" />
+		<widget name="filelist" position="70,260" size="820,560" itemHeight="40" font="Regular; 30" scrollbarMode="showOnDemand" backgroundColor="header" foregroundColor="white" backgroundColorSelected="header" foregroundColorSelected="ltbluette" transparent="1" />
+		<ePixmap position="955,640" size="300,300" pixmap="menu/ico_team.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="AT37" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+	
+	<!-- ########## END ATV TEAM PANELS ########## -->
+	
+	<!-- PLI SoftCam Setup -->
+	<screen name="SoftcamSetup" position="fill" title="Softcam Setup" flags="wfNoBorder" backgroundColor="transparent">				
+		<widget name="info" position="100,500" size="820,400" font="Regular;28" backgroundColor="header" transparent="1" />
+		<panel name="setup_common"/>
+		<panel name="O"/>
+		<ePixmap position="1440,170" size="256,256" pixmap="menu/camcenter.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="PL08" position="20,20" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99"/-->
+	</screen>
+	 <!-- EPGvertical ATV-->
+	<screen name="EPGvertical" position="0,0" size="1920,1080" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">  
+		<widget source="Event" render="Label" position="10,145" size="800,35" font="Regular;32" backgroundColor="header" transparent="1" zPosition="1">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="10,182" size="1900,65" font="Regular;30" backgroundColor="header" transparent="1" valign="top" zPosition="1">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="Event" render="Label" position="820,145" size="120,30" font="Regular; 27" halign="right" foregroundColor="grey" backgroundColor="header" transparent="1" valign="center" zPosition="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Event" render="Label" position="1357,145" size="120,30" font="Regular; 27" foregroundColor="grey" backgroundColor="header" transparent="1" halign="left" valign=" center" zPosition="1">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="Event" render="Progress" position="950,160" pixmap="skin_default/progress_medium.png" size="400,8" borderWidth="1" borderColor="white" transparent="1" zPosition="2">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget source="Event" render="Label" position="1730,145" size="180,30" font="Regular; 27" foregroundColor="grey" backgroundColor="header" transparent="1" halign="right" valign="center" zPosition="1">
+			<convert type="EventTime">Remaining</convert>
+			<convert type="RemainingToText">
+			</convert>
+		</widget>
+		<eLabel name="seperator" position="0,267" size="1920,2" backgroundColor="grey" zPosition="1"/>
+		<eLabel name="seperator2" position="0,315" size="1920,2" backgroundColor="grey" zPosition="1"/>
+		<widget name="lab1" position="10,670" size="1900,53" font="Regular;36" halign="center" valign="center" zPosition="20" foregroundColor="white" transparent="1" />  
+		<widget name="bouquetlist" position="11,270" size="1900,45" zPosition="3" itemHeight="45" font="Regular;29" borderColor="yellow" borderWidth="1" foregroundColor="white" foregroundColorSelected="bluette" backgroundColor="black" backgroundColorSelected="bluette" transparent="0" />
+		<!-- DO NOT CHANGE THIS LINE !!!!!!!!!!!!-->
+		<widget enableWrapAround="0" itemHeight="30" font="Regular;0" name="list" position="0,0" size="0,150" zPosition="-10" />
+		<widget font="Regular;29" halign="center" valign="center" name="currCh1" noWrap="1" position="85,270" size="285,40" zPosition="2" transparent="1" foregroundColor="grey" backgroundColor="header"/>
+		<widget font="Regular;29" halign="center" valign="center" name="currCh2" noWrap="1" position="470,270" size="285,45" zPosition="2" transparent="1" foregroundColor="grey" backgroundColor="header"/>
+		<widget font="Regular;29" halign="center" valign="center" name="currCh3" noWrap="1" position="851,270" size="285,45" zPosition="2" transparent="1" foregroundColor="grey" backgroundColor="header"/>
+		<widget font="Regular;29" halign="center" valign="center" name="currCh4" noWrap="1" position="1234,270" size="285,45" zPosition="2" transparent="1" foregroundColor="grey" backgroundColor="header"/>
+		<widget font="Regular;29" halign="center" valign="center" name="currCh5" noWrap="1" position="1617,270" size="285,45" zPosition="2" transparent="1" foregroundColor="grey" backgroundColor="header"/>
+		<widget backgroundColor="bluette" name="Active1" position="10,270" size="355,45" zPosition="1" transparent="0" />
+		<widget backgroundColor="bluette" name="Active2" position="393,270" size="355,45" zPosition="1" transparent="0" />
+		<widget backgroundColor="bluette" name="Active3" position="775,270" size="355,45" zPosition="1" transparent="0" />
+		<widget backgroundColor="bluette" name="Active4" position="1158,270" size="355,45" zPosition="1" transparent="0" />
+		<widget backgroundColor="bluette" name="Active5" position="1540,270" size="355,45" zPosition="1" transparent="0" />
+		<widget source="piconCh1" render="MetrixHDXPicon" position="10,270" size="75,45" zPosition="2" alphatest="blend">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget source="piconCh2" render="MetrixHDXPicon" position="393,270" size="75,45" zPosition="2" alphatest="blend">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget source="piconCh3" render="MetrixHDXPicon" position="775,270" size="75,45" zPosition="2" alphatest="blend">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget source="piconCh4" render="MetrixHDXPicon" position="1158,270" size="75,45" zPosition="2" alphatest="blend">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget source="piconCh5" render="MetrixHDXPicon" position="1540,270" size="75,45" zPosition="2" alphatest="blend">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget name="list1" position="10,320" scrollbarSliderBorderWidth="1" scrollbarWidth="12" scrollbarSliderForegroundColor="white" scrollbarSliderBorderColor="bluette" scrollbarMode="showAlways" size="370,620" zPosition="1" TimeforegroundColor="grey" TimeBackgroundColor="background2" PrimeTimeForegroundColor="green" PrimeTimeBackgroundColor="header" EntryforegroundColor="white" EntrybackgroundColor="dark" EntryForegroundColorSelected="white" EntryBackgroundColorSelected="bluette" EntryForegroundColorNow="white" TimeFontVertical="Regular;29" EventFontVertical="Regular;27" font="Regular; 30"/>
+		<widget name="list2" position="393,320" scrollbarSliderBorderWidth="1" scrollbarWidth="12" scrollbarSliderForegroundColor="white" scrollbarSliderBorderColor="bluette" scrollbarMode="showAlways" size="370,620" zPosition="1" TimeforegroundColor="grey" TimeBackgroundColor="background2" PrimeTimeForegroundColor="green" PrimeTimeBackgroundColor="header" EntryforegroundColor="white" EntrybackgroundColor="dark" EntryForegroundColorSelected="white" EntryBackgroundColorSelected="bluette" EntryForegroundColorNow="white" TimeFontVertical="Regular;29" EventFontVertical="Regular;27" font="Regular; 30"/>
+		<widget name="list3" position="775,320" scrollbarSliderBorderWidth="1" scrollbarWidth="12" scrollbarSliderForegroundColor="white" scrollbarSliderBorderColor="bluette" scrollbarMode="showAlways" size="370,620" zPosition="1" TimeforegroundColor="grey" TimeBackgroundColor="background2" PrimeTimeForegroundColor="green" PrimeTimeBackgroundColor="header" EntryforegroundColor="white" EntrybackgroundColor="dark" EntryForegroundColorSelected="white" EntryBackgroundColorSelected="bluette" EntryForegroundColorNow="white" TimeFontVertical="Regular;29" EventFontVertical="Regular;30" font="Regular; 30" />
+		<widget name="list4" position="1158,320" scrollbarSliderBorderWidth="1" scrollbarWidth="12" scrollbarSliderForegroundColor="white" scrollbarSliderBorderColor="bluette" scrollbarMode="showAlways" size="370,620" zPosition="1" TimeforegroundColor="grey" TimeBackgroundColor="background2" PrimeTimeForegroundColor="green" PrimeTimeBackgroundColor="header" EntryforegroundColor="white" EntrybackgroundColor="dark" EntryForegroundColorSelected="white" EntryBackgroundColorSelected="bluette" EntryForegroundColorNow="white" TimeFontVertical="Regular;29" EventFontVertical="Regular;27" font="Regular; 30" />
+		<widget name="list5" position="1540,320" scrollbarSliderBorderWidth="1" scrollbarWidth="12" scrollbarSliderForegroundColor="white" scrollbarSliderBorderColor="bluette" scrollbarMode="showAlways" size="370,620" zPosition="1" TimeforegroundColor="grey" TimeBackgroundColor="background2" PrimeTimeForegroundColor="green" PrimeTimeBackgroundColor="header" EntryforegroundColor="white" EntrybackgroundColor="dark" EntryForegroundColorSelected="white" EntryBackgroundColorSelected="bluette" EntryForegroundColorNow="white" TimeFontVertical="Regular;29" EventFontVertical="Regular;27" font="Regular; 30" />
+		<panel name="p900_Template1"/>	
+		<panel name="p900_Date"/>
+		<panel name="MI"/>
+		<panel name="ScreenTemplateAllColorButtons_template1"/>
+	</screen>
+</skin>
