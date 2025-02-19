@@ -2,12 +2,13 @@ from Components.Converter.Converter import Converter
 from enigma import iServiceInformation
 from Tools.Directories import fileExists
 from Components.Element import cached
-from Components.Converter.Poll import Poll
+from Poll import Poll
 import os
 info = {}
 old_ecm_mtime = None
 
-class pdCaidInfo2(Poll, Converter, object):
+
+class NOVCaidInfo2(Poll, Converter, object):
     CAID = 0
     PID = 1
     PROV = 2
@@ -117,7 +118,7 @@ class pdCaidInfo2(Poll, Converter, object):
             self.type = self.CRDTXT
         elif type == 'Short':
             self.type = self.SHORT
-        elif type == 'Default' or type == '' or type == None or type == '%':
+        elif type == 'Default' or type == '' or type is None or type == '%':
             self.type = self.ALL
         else:
             self.type = self.FORMAT
@@ -349,7 +350,7 @@ class pdCaidInfo2(Poll, Converter, object):
                         if ecm_info.get('ecm time', '').find('msec') > -1:
                             ecm_time = ecm_info.get('ecm time', '')
                         else:
-                            ecm_time = ecm_info.get('ecm time', '').replace('.', '').lstrip('0') ########msec####
+                            ecm_time = ecm_info.get('ecm time', '').replace('.', '').lstrip('0') + ' msec'
                         if self.type == self.DELAY:
                             return ecm_time
                         protocol = ecm_info.get('protocol', '')
@@ -507,7 +508,7 @@ class pdCaidInfo2(Poll, Converter, object):
                 if ecm_mtime == old_ecm_mtime:
                     return info
                 old_ecm_mtime = ecm_mtime
-                ecmf = open('/tmp/ecm.info', 'r')
+                ecmf = open('/tmp/ecm.info', 'rb')
                 ecm = ecmf.readlines()
             except:
                 old_ecm_mtime = None
@@ -590,7 +591,7 @@ class pdCaidInfo2(Poll, Converter, object):
                                     item[1] = item[1][tt + 1:]
                             info[item[0].strip().lower()] = item[1].strip()
                         else:
-                            if 'caid' not in info or 'CaID' not in info:
+                            if 'caid' not in info:
                                 x = line.lower().find('caid')
                                 if x != -1:
                                     y = line.find(',')
