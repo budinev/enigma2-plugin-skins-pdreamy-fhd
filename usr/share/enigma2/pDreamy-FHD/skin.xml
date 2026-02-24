@@ -3962,4 +3962,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		</widget>
 		<!--eLabel name="DEBUG" text="S189" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99"/-->
 	</screen>
+        <screen name="WebPlusScreen" title="SatLodge WebPlus" position="fill" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_DateMid" />
+		
+		<widget name="list" position="70,180" size="1050,700" font="Regular;32" itemHeight="45" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />
+		
+		<widget name="info_box" position="70,915" size="1200,50" font="Regular;36" foregroundColor="white" render="Label" borderSize="2" borderColor="black" backgroundColor="header" transparent="1" zPosition="3" halign="left" />
+
+		<ePixmap position="60,970" size="700,90" pixmap="pDreamy-FHD/icons/team_logo.png" alphatest="blend" zPosition="2" />
+	</screen>
 		</skin>
